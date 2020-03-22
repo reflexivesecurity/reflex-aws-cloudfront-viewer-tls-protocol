@@ -1,6 +1,6 @@
 # reflex-aws-cloudfront-viewier-tls-protocol
 
-A reflex rule to ensure CloudFront distributions meet a minimum TLS version.
+A reflex rule to detect that Cloudfront distribution viewer certificates meet a minimum TLS version.
 
 ORIGIN
 
