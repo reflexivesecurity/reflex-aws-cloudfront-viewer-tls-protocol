@@ -37,8 +37,7 @@ class CloudfrontViewerTlsProtocol(AWSRule):
     def extract_event_data(self, event):
         """ Extract required event data """
         self.distribution_id = event["detail"]["responseElements"]["distribution"]["id"]
-        self.protocol_version = event["detail"]["responseElements"]["distribution"]["viewerCertificate"]["minimumProtocolVersion"]
-
+        self.protocol_version = event["detail"]["responseElements"]["distribution"]["distributionConfig"]["viewerCertificate"]["minimumProtocolVersion"]
 
     def resource_compliant(self):
         """
