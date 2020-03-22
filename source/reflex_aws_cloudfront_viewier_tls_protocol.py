@@ -1,4 +1,4 @@
-""" Module for CloudfrontTlsVersion """
+""" Module for CloudfrontViewerTlsProtocol """
 
 import json
 import os
@@ -7,7 +7,7 @@ import boto3
 from reflex_core import AWSRule
 
 
-class CloudfrontTlsVersion(AWSRule):
+class CloudfrontViewerTlsProtocol(AWSRule):
     """ TODO: A description for your rule """
 
     # TODO: Instantiate whatever boto3 client you'll need, if any.
@@ -72,5 +72,5 @@ class CloudfrontTlsVersion(AWSRule):
 
 def lambda_handler(event, _):
     """ Handles the incoming event """
-    rule = CloudfrontTlsVersion(json.loads(event["Records"][0]["body"]))
+    rule = CloudfrontViewerTlsProtocol(json.loads(event["Records"][0]["body"]))
     rule.run_compliance_rule()
