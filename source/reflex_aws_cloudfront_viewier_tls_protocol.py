@@ -58,7 +58,8 @@ class CloudfrontViewerTlsProtocol(AWSRule):
 
     def get_remediation_message(self):
         """ Returns a message about the remediation action that occurred """
-        return f"Cloudfront distribution {self.distribution_id} viewer certificate protocol version of {self.protocol_version} does not meet the the minimum requirements.  Allowed values are {", ".join(self.viewer_protocol_versions_allowed)}."
+        protocols = ", ".join(self.viewer_protocol_versions_allowed)
+        return f"Cloudfront distribution {self.distribution_id} viewer certificate protocol version of {self.protocol_version} does not meet the the minimum requirements.  Allowed values are {protocols}."
 
 
 def lambda_handler(event, _):
