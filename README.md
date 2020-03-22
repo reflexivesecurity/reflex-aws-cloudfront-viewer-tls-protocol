@@ -2,29 +2,12 @@
 
 A reflex rule to detect that Cloudfront distribution viewer certificates meet a minimum TLS version.
 
-ORIGIN
-
-Choose the minimum SSL protocol for CloudFront to use when it establishes an HTTPS connection to your origin. We recommend that you select the latest protocol that your server supports.
-
-Minimum Origin SSL Protocol:
-
-1. TLSv1.2
-2. TLSv1.1
-3. TLSv1
-4. SSLv3
-
-Viewer
-
-Only applies to custom SSL certificates
+Viewer Protocols: Only applies to custom SSL certificates (i.e. not cloudfront.net)
 
 1. TLSv1.2_2018
-2. TLSv1.1_2016
+2. TLSv1.1_2016 (Recommended Minimum by AWS)
 3. TLSv1_2016
 4. TLSv1
-
-Use viewer HTTP/2
-HTTP/2, HTTP/1.1, HTTP/1.0
-For viewer requests, choose the versions of the HTTP protocol that you want CloudFront to accept. In general, HTTP/2 is faster. CloudFront always forwards requests to the origin using HTTP/1.1.
 
 ## Usage
 
