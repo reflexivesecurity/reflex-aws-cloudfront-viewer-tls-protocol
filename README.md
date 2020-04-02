@@ -15,8 +15,9 @@ To learn more about CloudFront, see [the AWS Documentation](https://docs.aws.ama
 To use this rule either add it to your `reflex.yaml` configuration file:
 ```
 rules:
-  - cloudfront-viewier-tls-protocol:
-      version: latest
+  aws:
+    - cloudfront-viewier-tls-protocol:
+        version: latest
 ```
 
 or add it directly to your Terraform:
