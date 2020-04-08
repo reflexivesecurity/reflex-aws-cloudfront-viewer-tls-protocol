@@ -10,6 +10,9 @@ Viewer Protocols: Only applies to custom SSL certificates (i.e. not cloudfront.n
 
 To learn more about CloudFront, see [the AWS Documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html).
 
+## Getting Started
+To get started using Reflex, check out [the Reflex Documentation](https://docs.cloudmitigator.com/).
+
 ## Usage
 
 To use this rule either add it to your `reflex.yaml` configuration file:
