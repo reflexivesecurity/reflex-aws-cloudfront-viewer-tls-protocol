@@ -1,5 +1,5 @@
 module "reflex_aws_cloudfront_viewier_tls_protocol" {
-  source           = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe_lambda?ref=v0.5.4"
+  source           = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe_lambda?ref=v0.5.7"
   rule_name        = "CloudfrontViewerTlsProtocol"
   rule_description = "A reflex rule to ensure CloudFront distribution viewer certificate protocols meet a minimum TLS version."
 
