@@ -12,10 +12,6 @@ class CloudfrontViewerTlsProtocol(AWSRule):
     A reflex rule to detect that Cloudfront distribution viewer certificates meet a minimum TLS version.
     """
 
-    # TODO: Instantiate whatever boto3 client you'll need, if any.
-    # Example:
-    # client = boto3.client("s3")
-
     viewer_protocol_versions =[
         "TLSv1.2_2018",
         "TLSv1.1_2016",
@@ -46,15 +42,6 @@ class CloudfrontViewerTlsProtocol(AWSRule):
         Return True if it is compliant, and False if it is not.
         """
         return self.protocol_version in self.viewer_protocol_versions_allowed
-
-    def remediate(self):
-        """
-        Fix the non-compliant resource so it conforms to the rule
-        """
-        # TODO (Optional): Fix the non-compliant resource. This only needs to
-        # be implemented for rules that remediate non-compliant resources.
-        # Purely detective rules can omit this function.
-        pass
 
     def get_remediation_message(self):
         """ Returns a message about the remediation action that occurred """
