@@ -1,5 +1,5 @@
 module "cwe" {
-  source           = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe_lambda?ref=v0.6.0"
+  source           = "git::https://github.com/cloudmitigator/reflex-engine.git//modules/cwe?ref=v0.6.0"
   rule_name        = "CloudfrontViewerTlsProtocol"
   rule_description = "A reflex rule to ensure CloudFront distribution viewer certificate protocols meet a minimum TLS version."
 
