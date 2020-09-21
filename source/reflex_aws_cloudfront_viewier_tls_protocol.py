@@ -12,17 +12,17 @@ class CloudfrontViewerTlsProtocol(AWSRule):
     A reflex rule to detect that Cloudfront distribution viewer certificates meet a minimum TLS version.
     """
 
-    viewer_protocol_versions =[
+    viewer_protocol_versions = [
         "TLSv1.2_2018",
         "TLSv1.1_2016",
         "TLSv1_2016",
         "TLSv1",
     ]
-    viewer_protocol_versions_allowed =[
+    viewer_protocol_versions_allowed = [
         "TLSv1.2_2018",
         "TLSv1.1_2016",
     ]
-    viewer_protocol_versions_not_allowed =[
+    viewer_protocol_versions_not_allowed = [
         "TLSv1_2016",
         "TLSv1",
     ]
@@ -33,7 +33,9 @@ class CloudfrontViewerTlsProtocol(AWSRule):
     def extract_event_data(self, event):
         """ Extract required event data """
         self.distribution_id = event["detail"]["responseElements"]["distribution"]["id"]
-        self.protocol_version = event["detail"]["responseElements"]["distribution"]["distributionConfig"]["viewerCertificate"]["minimumProtocolVersion"]
+        self.protocol_version = event["detail"]["responseElements"]["distribution"][
+            "distributionConfig"
+        ]["viewerCertificate"]["minimumProtocolVersion"]
 
     def resource_compliant(self):
         """
@@ -52,8 +54,9 @@ class CloudfrontViewerTlsProtocol(AWSRule):
 def lambda_handler(event, _):
     """ Handles the incoming event """
     print(event)
-    if subscription_confirmation.is_subscription_confirmation(event):
-        subscription_confirmation.confirm_subscription(event)
+    event_payload = json.loads(event["Records"][0]["body"])
+    if subscription_confirmation.is_subscription_confirmation(event_payload):
+        subscription_confirmation.confirm_subscription(event_payload)
         return
-    rule = CloudfrontViewerTlsProtocol(json.loads(event["Records"][0]["body"]))
+    rule = CloudfrontViewerTlsProtocol(event_payload)
     rule.run_compliance_rule()
